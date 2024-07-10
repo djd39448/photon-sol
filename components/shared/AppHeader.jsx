@@ -139,6 +139,7 @@ function AppHeader() {
 				{/* Small screen menu items */}
 				{['NEW PAIRS', 'TRENDING', 'MEMESCOPE', 'HOLDINGS', 'TRADE WITH ETH', 'REFERRAL TRACKING', 'TRANSFER FUNDS', 'LEADERBOARD', 'SETTINGS', 'LANGUAGE', 'SWITCH NETWORK', 'LOGOUT'].map((item, index) => (
 					<div
+						key = {index}
 					 className="flex items-center justify-between pt-3 mb-2 text-lg text-left justify-items-stretch text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light sm:mx-4 sm:py-2 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
 					 style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 500, fontSize: "12px", color: "#b5b7da", lineHeight: "20px" }}
 				   	>

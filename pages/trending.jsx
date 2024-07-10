@@ -4,7 +4,7 @@ import TabPanel from "../components/ui/tabs/tab-panel";
 import Withdraw from "../components/Withdraw";
 import Deposit from "../components/Deposit";
 const tabs = ["Deposit", "Withdraw"];
-export default () => {
+const Trending =() => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   return (
     <div className="min-h-[100vh] container justify-center mx-auto mt-4">
@@ -36,3 +36,4 @@ export default () => {
     </div>
   );
 };
+export default Trending;
