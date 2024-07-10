@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { FaFilter } from 'react-icons/fa'; // Import a filter icon
-import { BiChevronDown } from 'react-icons/bi'; // Import a down arrow icon
 import { AiFillSetting } from "react-icons/ai";
 import Chart from '../components/shared/Chart';
 import CoinTypeMenu from '../components/shared/CoinTypeMenu';
@@ -24,7 +22,6 @@ const NewPairs = () => {
             <div className='flex flex-row flex-wrap justify-between px-2 mt-2'>
                 <div className='flex justify-between w-full lg:w-2/5 '>
                     <FilterButton />
-
                     <DexesButton />
                     <div className="flex items-center ml-6">
                         <button
