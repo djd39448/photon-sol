@@ -43,7 +43,7 @@ function useScrollToTop() {
 					right: 50,
 					bottom: 50,
 					display: showScroll ? 'flex' : 'none',
-					background: '#2596BE',
+					background: '#31333C',
 					color: '#FFFFFF'
 				}}
 			/>

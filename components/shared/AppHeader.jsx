@@ -4,17 +4,19 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiX, FiMenu } from 'react-icons/fi';
 import logoLight from '../../public/images/logo-light.svg';
+import logosmall from '../../public/images/logo-small.svg';
 import LinkButton from './ButtonLink';
+import { IoWalletOutline } from "react-icons/io5";
+import { TbCurrencySolana } from "react-icons/tb";
+import { TbDeviceMobileFilled } from "react-icons/tb";
+import { BiSolidUserCircle } from "react-icons/bi";
+import solanapng from '../../public/images/solana.png';
 
 function AppHeader() {
 	const [showMenu, setShowMenu] = useState(false);
 
 	function toggleMenu() {
-		if (!showMenu) {
-			setShowMenu(true);
-		} else {
-			setShowMenu(false);
-		}
+		setShowMenu(!showMenu);
 	}
 
 	return (
@@ -22,24 +24,24 @@ function AppHeader() {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			id="nav"
+			style={{backgroundColor: 'rgb(24, 25, 33)'}}
 		>
-			<div className="z-10 block max-w-screen-lg px-10 py-6 xl:max-w-screen-xl sm:flex sm:justify-between sm:items-center">
-				<div className="flex items-center justify-between px-4 sm:px-0">
-					<div>
+			<div className="z-10 block w-full px-6 lg:flex sm:items-center" style={{backgroundColor: 'rgb(24, 25, 33)'}}>
+				<div className="flex items-center py-3 sm:px-0">
+					<div className={`flex ${showMenu ? 'justify-center w-full' : ''}`}>
 						<Link href="/">
+							{/* Update the Image component to use intrinsic dimensions */}
 							<Image
-								src={logoLight}
-								className="inline w-10 cursor-pointer"
+								src={showMenu ? logosmall : logoLight}
 								alt="Logo"
-								width={150}
-								height={120}
+								width={showMenu ? 150 : 30}
+								height={30}
+								className="inline cursor-pointer fixed-size"
 							/>
-							<span className='float-right px-2 font-bold' style={{color: "#FFFFFF", fontFamily: 'Helvetica, Arial, sans-serif'}} >
-								Boston Innovations<br/>Corporation
-							</span>
 						</Link>
 					</div>
-					<div className="sm:hidden">
+
+					<div className="self-end ml-auto lg:hidden">
 						<button
 							onClick={toggleMenu}
 							type="button"
@@ -49,7 +51,8 @@ function AppHeader() {
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 24 24"
-								className="fill-current h-7 w-7 text-secondary-light dark:text-ternary-light"
+								className="w-5 h-5 fill-current"
+								style={{color: '#b5b7da'}}
 							>
 								{showMenu ? (
 									<FiX className="text-3xl" />
@@ -61,132 +64,92 @@ function AppHeader() {
 					</div>
 				</div>
 
-				{/* Header links small screen */}
-				<div
-					className={
-						showMenu
-							? 'block m-0 sm:ml-4 sm:mt-3 md:flex px-5 py-3 sm:p-0 justify-between items-center shadow-lg sm:shadow-none'
-							: 'hidden'
-					}
-				>
-					<div 
-						style={{fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 500, fontSize: "17px", color: "#FFFFFF", lineHeight: "20px"}}
-						className="block mb-2 text-lg font-medium text-left font-Helvetica, Arial, sans-serif text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light sm:mx-4 sm:py-2">
-						<Link href="/projects" aria-label="Projects">
-							NEW PAIRS
-						</Link>
+				{/* Header links large screen */}
+				<div className="items-center justify-between hidden w-full ml-4 space-x-4 lg:flex">
+					<div className='flex flex-row items-center'>
+						<LinkButton linkname={"/newpairs"} title={"NEW PAIRS"} />
+						<LinkButton linkname={"/trending"} title={"TRENDING"} />
+						<LinkButton linkname={"/memescope"} title={"MEMESCOPE"} />
+						<LinkButton linkname={""} title={"HOLDINGS"} />
+						<LinkButton linkname={""} title={"LEADERBOARD"} />
 					</div>
-					<div 
-						style={{fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 500, fontSize: "17px", color: "#FFFFFF", lineHeight: "20px"}}
-						className="block pt-3 mb-2 text-lg text-left border-t-2 text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light sm:mx-4 sm:py-2 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-						<Link href="/partners" aria-label="Partners">
-							TRENDING
-						</Link>
+					<div className='self-center'>
+						<div className="relative">
+							<div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+							<svg
+								className="w-5 h-5 text-gray-500 dark:text-gray-400"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth="2"
+								d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+								></path>
+							</svg>
+							</div>
+							<input
+								type="search"
+								id="default-search"
+								className="block p-4 pl-10 w-full sm:w-2/3 md:w-3/4 lg:w-full text-sm text-[#b5b7da] rounded-xl border-none"
+								placeholder="Search by token or LP contract"
+								required
+								style={{
+									backgroundColor: 'rgb(38, 38, 46)',
+									borderRadius: '50px',
+									height: '40px',
+								}}
+							/>
+						</div>
 					</div>
-					<div 
-						style={{fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 500, fontSize: "17px", color: "#FFFFFF", lineHeight: "20px"}}
-						className="block pt-3 mb-2 text-lg text-left border-t-2 text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light sm:mx-4 sm:py-2 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-						<Link href="/company" aria-label="Our Company">
-							MEMESCOPE
-						</Link>
-					</div>
-					<div 
-						style={{fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 500, fontSize: "17px", color: "#FFFFFF", lineHeight: "20px"}}
-						className="block pt-3 mb-2 text-lg text-left border-t-2 text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light sm:mx-4 sm:py-2 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-						<Link href="/opportunities" aria-label="Opportunities">
-							HOLDINGS
-						</Link>
-					</div>
-					<div 
-						style={{fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 500, fontSize: "17px", color: "#FFFFFF", lineHeight: "20px"}}
-						className="block pt-3 mb-2 text-lg text-left border-t-2 text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light sm:mx-4 sm:py-2 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-						<Link href="" aria-label="login">
-							TRADE WITH ETH
-						</Link>
-					</div>
-					<div 
-						style={{fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 500, fontSize: "17px", color: "#FFFFFF", lineHeight: "20px"}}
-						className="block pt-3 mb-2 text-lg text-left border-t-2 text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light sm:mx-4 sm:py-2 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-						<Link href="" aria-label="login">
-							REFERRAL TRACKING
-						</Link>
-					</div>
-					<div 
-						style={{fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 500, fontSize: "17px", color: "#FFFFFF", lineHeight: "20px"}}
-						className="block pt-3 mb-2 text-lg text-left border-t-2 text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light sm:mx-4 sm:py-2 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-						<Link href="" aria-label="login">
-							TRANSFER FUNDS
-						</Link>
-					</div>
-					<div 
-						style={{fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 500, fontSize: "17px", color: "#FFFFFF", lineHeight: "20px"}}
-						className="block pt-3 mb-2 text-lg text-left border-t-2 text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light sm:mx-4 sm:py-2 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-						<Link href="" aria-label="login">
-							REFERRAL TRACKING
-						</Link>
-					</div>
-					<div className="pt-3 border-t-0 sm:pt-0 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-					<button
-						style={{fontFamily: "Helvetica, Arial, sans-serif",
-								fontWeight: 500,
-								fontSize: "17px",
-								color: "#F8F8F8",
-								lineHeight: "20px",
-								display: "flex",
-								background: "#2596BE",
-								justifyContent: "center",
-								alignItems: "center",
-								borderRadius: "20px",
-								border: "1px solid #2596BE",
-								padding: "16px 41px",
-								gap: "10px",
-								width: "auto",
+					<div className='items-center my-auto h-[100%] flex flex-row' style={{color: '#b5b7da'}}>
+						<IoWalletOutline style={{height: '25px', width: 'auto', marginRight: '5px'}} />
+						<div className='flex flex-col mr-7'>
+							<div className='flex flex-row'>
 								
-						}}
-						className="block w-24 px-4 py-2 text-left text-white duration-300 rounded-sm shadow-sm font-general-medium sm:hidden text-md"
-						aria-label="Book Meeting Button"
-					>
-						Book Meeting
-					</button>
+							<Image src={solanapng} className='items-center my-auto mr-1' style={{height: '10px', width: 'auto'}} />
+								{"0"}
+							</div>
+							<div className='text-[12px]'>
+								SOL
+							</div>
+						</div>
+						<div className='flex flex-col items-center justify-center my-auto mr-7'>
+							<TbDeviceMobileFilled style={{height: '20px', width: 'auto'}} />
+							<span>Mobile</span>
+						</div>
+						<div className='items-center my-auto'>
+							<BiSolidUserCircle style={{height: '35px', width: 'auto'}}/>
+						</div>
 					</div>
 				</div>
 				
-				{/* Header links large screen */}
-				<div className="items-center justify-center hidden p-5 m-0 mt-5 shadow-lg font-general-medium sm:ml-4 sm:mt-3 sm:flex sm:p-0 sm:shadow-none">
-					<LinkButton linkname={"/projects"} title={"Projects"} />
-					<LinkButton linkname={"/partners"} title={"Partners"} />
-					<LinkButton linkname={"/company"} title={"Our Comapny"} />
-					<LinkButton linkname={"/opportunities"} title={"Opportunities"} />
-				</div>
-				<div className="items-center justify-center hidden p-5 m-0 mt-5 shadow-lg font-general-medium sm:ml-4 sm:mt-3 sm:flex sm:p-0 sm:shadow-none">
-				    <LinkButton linkname={""} title={"Log In"} />
-					<div className="pt-3 border-t-2 sm:pt-0 sm:border-t-0 border-primary-light dark:border-secondary-dark">
-						<button
-							style={{fontFamily: "Helvetica, Arial, sans-serif"}}
-							className="
-								font-medium
-								text-[17px]
-								text-[#F8F8F8]
-								leading-[20px]
-								flex
-								justify-center
-								items-center
-								bg-[#2596BE]
-								rounded-[20px]
-								px-[41px]
-								py-[16px]
-								gap-[10px]
-								w-auto
-								hover:bg-[#1E7BA7] /* Slightly darker shade */
-								transition
-								duration-300
-							"
-							aria-label="Book Meeting Button"
-						>
-							Book Meeting
-						</button>
-					</div>
-				</div>
+			</div>
+
+			<div
+				className={
+					showMenu
+						? 'block m-0 sm:ml-4 sm:mt-3 lg:flex px-5 py-3 sm:p-0 justify-between items-center shadow-lg sm:shadow-none'
+						: 'hidden'
+				}
+			>
+				{/* Small screen menu items */}
+				{['NEW PAIRS', 'TRENDING', 'MEMESCOPE', 'HOLDINGS', 'TRADE WITH ETH', 'REFERRAL TRACKING', 'TRANSFER FUNDS', 'LEADERBOARD', 'SETTINGS', 'LANGUAGE', 'SWITCH NETWORK', 'LOGOUT'].map((item, index) => (
+					<div
+					 className="flex items-center justify-between pt-3 mb-2 text-lg text-left justify-items-stretch text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light sm:mx-4 sm:py-2 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
+					 style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 500, fontSize: "12px", color: "#b5b7da", lineHeight: "20px" }}
+				   	>
+					 <Link href="" aria-label={item} className='self-start'>
+					   {item}
+					 </Link>
+					 <Link href="" className='self-end px-5'>
+					   {'>'}
+					 </Link>
+				   	</div>
+				))}
 			</div>
 		</motion.nav>
 	);
