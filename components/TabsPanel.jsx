@@ -19,15 +19,15 @@ const tabs = [
   },
   {
     name:"My Holdings",
-    img : '/images/Chart.svg'
+    img : '/images/chart.svg'
   },
   {
     name:"Top Traders",
-    img : '/images/Crown.svg'
+    img : '/images/crown.svg'
   },
   {
     name:"Holders(6)",
-    img : '/images/User.svg'
+    img : '/images/user.svg'
   },
   {
     name:"Orders",
