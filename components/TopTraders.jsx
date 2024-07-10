@@ -5,7 +5,7 @@ const TopTradersTable = () => {
   return (
     <section className="mx-auto">
       <div className="flex flex-col">
-        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:mx-8">
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
             <div className="overflow-hidden">
               <table className="min-w-full">
@@ -67,7 +67,7 @@ const TopTradersTable = () => {
                 </thead>
                 <tbody className=" divide-y divide-[#36363F]">
                   {topTrader.map((val, index) => (
-                    <tr>
+                    <tr key = {index}>
                       <td className="px-4 py-4 text-sm font-medium  dark:text-gray-200 whitespace-nowrap">
                         <div className="inline-flex items-center gap-x-3">
                           <span className={"text-[14px] text-[#b5b7da]"}>

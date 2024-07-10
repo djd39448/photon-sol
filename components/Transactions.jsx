@@ -5,7 +5,7 @@ const TransactionTable = () => {
   return (
     <section class="mx-auto">
       <div class="flex flex-col">
-        <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:mx-8">
           <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
             <div class="overflow-hidden">
               <table class="min-w-full">
@@ -122,7 +122,7 @@ const TransactionTable = () => {
                 </thead>
                 <tbody class=" divide-y divide-[#36363F]">
                   {MetaData.map((val, index) => (
-                    <tr>
+                    <tr key= {index}>
                       <td class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
                         <div class="inline-flex items-center gap-x-3">
                           <span className={`text-[14px] ${val.type == 'Sell' ? "text-[#ffcad6]" : "text-[#bafffa]"}`}>

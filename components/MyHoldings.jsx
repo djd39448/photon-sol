@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaFilter } from "react-icons/fa"; // Import a filter icon
 import { BiChevronDown } from "react-icons/bi"; // Import a down arrow icon
-export default () => {
+const MyHoldings = () => {
   const [enabled, setEnabled] = useState(false);
 
   const toggleSwitch = () => setEnabled(!enabled);
@@ -38,3 +38,4 @@ export default () => {
     </div>
   );
 };
+export default MyHoldings;
