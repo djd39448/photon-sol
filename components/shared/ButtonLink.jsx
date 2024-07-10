@@ -7,7 +7,7 @@ const LinkButton = ({ linkname, title, title1, footer }) => {
   return (
     <div
       style={{
-        fontFamily: "Helvetica, Arial, sans-serif",
+        fontFamily: "Chillax-Variable",
         fontWeight: 'bold',
         fontSize: fontSize,
         color: "#b5b7da",

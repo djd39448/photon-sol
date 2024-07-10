@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
 	return (
 		<AnimatePresence>
 			<div className=" bg-secondary-light dark:bg-primary-dark transition duration-300">
-				<DefaultLayout>
+					<DefaultLayout>
 					<Component {...pageProps} />
 				</DefaultLayout>
 				<UseScrollToTop />

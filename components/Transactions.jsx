@@ -3,19 +3,19 @@ import { MetaData } from "../data/projectsData";
 const TransactionTable = () => {
   const [date_t, setDate_t] = useState(1);
   return (
-    <section class="mx-auto">
-      <div class="flex flex-col">
-        <div class="-mx-8 -my-2 overflow-x-auto ">
-          <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-            <div class="overflow-hidden">
-              <table class="min-w-full">
+    <section className="mx-auto">
+      <div className="flex flex-col">
+        <div className="-mx-8 -my-2 overflow-x-auto ">
+          <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+            <div className="overflow-hidden">
+              <table className="min-w-full">
                 <thead>
                   <tr>
                     <th
                       scope="col"
-                      class="py-3.5  text-sm font-normal text-left w-1/10"
+                      className="py-3.5  text-sm font-normal text-left w-1/10"
                     >
-                      <div class="flex items-center ">
+                      <div className="flex items-center ">
                         <button
                           onClick={() => setDate_t(1)}
                           className={`border-2 border-[#36363F] px-3 py-1 rounded-l-full text-[#8d93b7] ${

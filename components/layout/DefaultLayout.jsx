@@ -1,9 +1,8 @@
 import PagesMetaHead from '../PagesMetaHead';
 import AppHeader from '../shared/AppHeader';
-
 const DefaultLayout = ({ children }) => {
 	return (
-		<div  style={{background: "#1B1C25", padding: 0, margin: 0, fontFamily: 'Helvetica, Arial, sans-serif'}}>
+		<div className="font-Chillax-Variable" style={{background: "#1B1C25", padding: 0, margin: 0 }}>
 			<PagesMetaHead />
 			<AppHeader/>
 				<div>
