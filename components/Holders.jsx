@@ -4,14 +4,13 @@ const Holders = () => {
   return (
     <section className="mx-auto">
       <div className="flex flex-col">
-        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:mx-8">
-          <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+        <div className="-mx-4 -my-2 overflow-x-auto">
+          <div className="inline-block min-w-full py-2 ">
             <div className="overflow-hidden">
               <table className="min-w-full">
                 <thead>
                   <tr>
-          
-
+  
                     <th
                       scope="col"
                       className="px-4 py-3.5 text-left rtl:text-right font-semibold text-[#8d93b7] text-[14px] w-1/10"

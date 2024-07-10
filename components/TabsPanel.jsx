@@ -26,7 +26,7 @@ const TabsPanel = () => {
 
   return (
     <div >
-      <div className="flex gap-10 border-b border-[#36363F] pl-8">
+      <div className="flex gap-10 border-b border-[#36363F] pl-5">
         {tabs.map((item, index) => (
           <TabNav
             key={`tab-nav-${index}`}
