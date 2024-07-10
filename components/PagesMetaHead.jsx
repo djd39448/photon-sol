@@ -11,15 +11,16 @@ function PagesMetaHead({ title, keywords, description }) {
 			<meta name="description" content={description} />
 			<meta charSet="utf-8" />
 			<link rel="icon" href="/images/logo-light.svg" />
-			<title>Boston Innovations Corporation</title>
+			<title>Photon - Your Trusted Platform for Token Discovery & Trading</title>
 		</Head>
 	);
 }
 
 PagesMetaHead.defaultProps = {
-	title: 'Boston Innovations Corporation',
+	title: 'Photon - Your Trusted Platform for Token Discovery & Trading',
 	keywords: 'next.js, react, web, ui',
 	keywords: 'Simple and multi-page next.js and react application',
 };
 
 export default PagesMetaHead;
+

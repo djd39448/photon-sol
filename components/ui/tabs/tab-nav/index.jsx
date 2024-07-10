@@ -1,7 +1,7 @@
 import React from "react";
 import * as cn from "classnames";
 
-const TabNav = ({ text, isActive, click }) => {
+const TabNav = ({ text, isActive, click,avatar}) => {
   return (
     <button
       className={cn({

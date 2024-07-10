@@ -27,11 +27,14 @@ export default function Home() {
   };
   const [watch, setWatch] = useState(false);
   return (
-    <div className="m-3 pb-5">
+    <div className="m-3 pb-5 min-h-[100vh] ">
       {watch === true ? (
-        <div style = {{marginLeft: -10, marginRight: -10}}className="ml-4 px-5 p-2 border-y-2 border-[#36363F] text-[#b5b7da] mb-3 flex items-center">
-          <img src="/images/starblue.svg" /> &nbsp;
-          WATCHING &nbsp;<span className="text-[#8e9dff]">LUCKY</span> &nbsp;$4.1K
+        <div
+          style={{ marginLeft: -10, marginRight: -10 }}
+          className="ml-4 px-5 p-2 border-y-2 border-[#36363F] text-[#b5b7da] mb-3 flex items-center"
+        >
+          <img src="/images/starblue.svg" /> &nbsp; WATCHING &nbsp;
+          <span className="text-[#8e9dff]">LUCKY</span> &nbsp;$4.1K
         </div>
       ) : (
         ""
@@ -40,32 +43,38 @@ export default function Home() {
       <div className="flex flex-col-reverse lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0 ">
         <div className="bg-[#24252e] text-white  w-full rounded-lg">
           <div className="px-5 py-5 flex justify-between">
-            <div className="flex items-center">
-              <span className="text-[16px] font-bold mr-2">BACK FROM HELL</span>
-              <img
-                style={{ boxShadow: "0 0 4px 0 rgba(84, 211, 143, .66)" }}
-                className="mr-10 rounded-full border-2 border-[#0e8748] w-[25px] h-[25px] p-1"
-                src="https://photon-sol.tinyastro.io/assets/pump-045f4b7aabe5dff1e2a9030448611760f6bd84d3e2669a20d7df7828b0febccc.png"
-              />
-              <span className="text-[#8e9dff] flex items-center px-4 border-r-2 border-[#36363F]">
-                Token&nbsp;
-                <HiMiniClipboardDocument />
-              </span>
-              <span className="text-[#8e9dff] flex items-center px-4 border-r-2 border-[#36363F]">
-                Pair&nbsp;
-                <HiMiniClipboardDocument />
-              </span>
+            <div className="flex lg:flex-row flex-col items-center">
+              <div className="flex lg:mb-0 mb-2">
+                <span className="text-[16px] font-bold mr-2">
+                  BACK FROM HELL
+                </span>
+                <img
+                  style={{ boxShadow: "0 0 4px 0 rgba(84, 211, 143, .66)" }}
+                  className="lg:mr-10 rounded-full border-2 border-[#0e8748] w-[25px] h-[25px] p-1"
+                  src="https://photon-sol.tinyastro.io/assets/pump-045f4b7aabe5dff1e2a9030448611760f6bd84d3e2669a20d7df7828b0febccc.png"
+                />
+              </div>
+              <div className="flex">
+                <span className="text-[#8e9dff] flex items-center pr-4 lg:px-4 border-r-2 border-[#36363F]">
+                  Token&nbsp;
+                  <HiMiniClipboardDocument />
+                </span>
+                <span className="text-[#8e9dff] flex items-center px-4 border-r-2 border-[#36363F]">
+                  Pair&nbsp;
+                  <HiMiniClipboardDocument />
+                </span>
+              </div>
             </div>
-            <div className="flex">
-              <div className="flex items-center mr-5 ">
+            <div className="flex items-center">
+              <div className="flex items-center mt-1 mr-5 hidden lg:block ">
                 <button
                   onClick={toggleSwitchOurlier}
-                  className={`relative inline-flex items-center h-3 rounded-full w-8 transition-colors duration-300 ${
+                  className={`relative inline-flex  items-center h-3 rounded-full w-8 transition-colors duration-300 ${
                     outlier ? "bg-[#6A60E8]" : "bg-gray-400"
                   }`}
                 >
                   <span
-                    className={`inline-block w-5 h-5 transform bg-white rounded-full transition-transform duration-300 ${
+                    className={`inline-block w-5 h-5 transform bg-white  rounded-full transition-transform duration-300 ${
                       outlier ? "translate-x-4" : "translate-x-0"
                     }`}
                   />
