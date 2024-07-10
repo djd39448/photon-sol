@@ -1,7 +1,7 @@
 import React from "react";
 import * as cn from "classnames";
 
-const TabNav = ({ text, isActive, click,avatar}) => {
+const TabNav = ({ text, isActive, click,avatar, imgtab}) => {
   return (
     <button
       className={cn({
@@ -10,7 +10,10 @@ const TabNav = ({ text, isActive, click,avatar}) => {
       })}
       onClick={() => click()}
     >
+      <div className="flex items-center">
+      {imgtab? <img className="mr-1" src ={imgtab} /> : null}
       {text}
+      </div>
     </button>
   );
 };

@@ -559,12 +559,14 @@ const Chart = () => {
                       INITIAL LIQUIDITY
                     </th>
                     <th scope="col" className="px-4 py-2 font-bold text-left" style={{ width: '10%' }}>
-                      <div className="flex items-center gap-x-3">
-                        <button className="flex items-center gap-x-2">
+                      {/* <div className="flex items-center gap-x-3">
+                        <button className="flex items-center gap-x-2"> */}
+                        <div className="flex flex-row items-center gap-x-2">
                           <span>MKT CAP</span>
-                          <HiMiniInformationCircle style={{width: '20px', height: 'auto'}}/>
-                        </button>
-                      </div>
+                          <HiMiniInformationCircle />
+                          </div>
+                        {/* </button>
+                      </div> */}
                     </th>
                     <th scope="col" className="px-4 py-2 font-bold text-left" style={{ width: '10%' }}>
                       TXNS

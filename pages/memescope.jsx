@@ -13,9 +13,11 @@ import { RiShieldKeyholeFill } from "react-icons/ri";
 import DataTable from "react-data-table-component";
 import TabsPanel from "../components/TabsPanel";
 import SolanaTradingViewWidget from "../components/SolanaTradingView";
+import RucyStatus from '../components/shared/LucyStatus';
 export default function Home() {
   const [hour, setHour] = useState(1);
   const [show, setShow] = useState(false);
+  const [showSetting, setShowSetting] = useState(false);
   const [buySell, setBuySell] = useState(1);
   const [selectedOption, setSelectedOption] = useState("option1");
   const [enabled, setEnabled] = useState(false);
@@ -41,8 +43,8 @@ export default function Home() {
       )}
 
       <div className="flex flex-col-reverse lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0 ">
-        <div className="bg-[#24252e] text-white  w-full rounded-lg">
-          <div className="px-5 py-5 flex justify-between">
+        <div className=" text-white  w-full rounded-lg">
+          <div className="border-[#36363F] border-2 bg-[#24252e] rounded-t-lg px-5 py-5 flex justify-between">
             <div className="flex lg:flex-row flex-col items-center">
               <div className="flex lg:mb-0 mb-2">
                 <span className="text-[16px] font-bold mr-2">
@@ -66,7 +68,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex items-center">
-              <div className="flex items-center mt-1 mr-5 hidden lg:block ">
+              <div className=" items-center mr-5 hidden lg:flex ">
                 <button
                   onClick={toggleSwitchOurlier}
                   className={`relative inline-flex  items-center h-3 rounded-full w-8 transition-colors duration-300 ${
@@ -83,7 +85,7 @@ export default function Home() {
               </div>
               <button
                 onClick={() => setWatch(!watch)}
-                className="w-[130px] py-2 text-left px-5 border-2 rounded-full border-[#36363F] flex items-center"
+                className="w-auto py-2 text-left px-5 border-2 rounded-full border-[#36363F] flex items-center"
               >
                 <img
                   className="w-[15px] mr-2"
@@ -95,10 +97,10 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <div className="border-[#36363F] border-b-2 h-[500px]">
+          <div className="h-[500px]">
             <SolanaTradingViewWidget />
           </div>
-          <div className="p-4">
+          <div className="border-[#36363F] border-2 bg-[#24252e] rounded-b-lg p-4">
             <TabsPanel />
           </div>
         </div>
@@ -106,8 +108,8 @@ export default function Home() {
           <div className="lg:text-center items-center lg:border-[#36363F] lg:border-2 lg:bg-[#24252e] text-white p-4 rounded-lg lg:mb-3">
             <div className="flex items-center lg:justify-center">
               <span className="font-semibold">LUCY</span>&nbsp;&nbsp;
-              <HiMiniClipboardDocument /> &nbsp;&nbsp;
-              <RiShieldKeyholeFill />
+              <HiMiniClipboardDocument className="text-[#8d93b7]" /> &nbsp;&nbsp;
+              <RucyStatus />
             </div>
             <div className="m-1 py-2 border-b-2 border-[#36363F]">
               <span className=" text-sm border-r-2 pr-2 border-[#36363F] text-[#b5b7da] font-medium">
@@ -498,21 +500,124 @@ export default function Home() {
               </div>
             )}
             <div className="mx-4 mb-4">
-              <div className="flex items-center border-y-2 border-[#36363F] text-[#8d93b7] mb-4  py-4">
-                <span className="text-[25px] mr-2">
-                  <IoMdSettings />
-                </span>{" "}
-                Advanced Settings
+              <div>
+                <div
+                  onClick={() => setShowSetting(!showSetting)}
+                  className={`flex items-center justify-between border-t-2 hover:text-[#FFF] border-[#36363F] text-[#8d93b7] cursor-pointer   py-4 ${
+                    showSetting === false ? "border-b-2 mb-4" : null
+                  }`}
+                >
+                  <div className="flex">
+                    <span className="text-[25px] mr-2">
+                      <IoMdSettings />
+                    </span>{" "}
+                    Advanced Settings
+                  </div>
+                  <div className="flex items-center">
+                    <img src="/images/attention.svg" />
+                    <span className="ml-1 text-[#ff4b92]">Warning</span>{" "}
+                    <button
+                      onClick={() => {
+                        setShowSetting(!showSetting);
+                      }}
+                      className={
+                        "ml-3 flex items-center justify-center border-[#36363F] h-[40px]  w-1/6 py-2 cursor-pointer"
+                      }
+                    >
+                      {showSetting == true ? (
+                        <IoIosArrowUp />
+                      ) : (
+                        <IoIosArrowDown />
+                      )}
+                    </button>
+                  </div>
+                </div>
+                {showSetting === true ? (
+                  <div className="text-[11px] text-[#b5b7da] p-3 rounded-lg mb-3 bg-[#1f2028]">
+                    <div className="flex">
+                      <span className="w-1/3">Slippage %</span>
+                      <span>Smart-Mev protection</span>
+                      <img src="/images/attention_dark.svg" />
+                    </div>
+                    <div className="flex items-center mb-3">
+                      <input
+                        className="mr-3 w-1/3 px-4 py-2 bg-transparent placeholder-[#b5b7da] border border-[#36363F] rounded-full hover:border-white text-[#FFF] focus:border-white"
+                        placeholder="Input amount"
+                        value="20.0"
+                      />{" "}
+                      Fast{" "}
+                      <div className="flex items-center mb-4 mt-4 ml-3">
+                        <button
+                          onClick={toggleSwitch}
+                          className={`relative inline-flex items-center h-3 rounded-full w-8 transition-colors duration-300 ${
+                            enabled ? "bg-[#6A60E8]" : "bg-gray-400"
+                          }`}
+                        >
+                          <span
+                            className={`inline-block w-5 h-5 transform bg-white rounded-full transition-transform duration-300 ${
+                              enabled ? "translate-x-4" : "translate-x-0"
+                            }`}
+                          />
+                        </button>
+                        <span className="ml-3 text-[#b5b7da]">Secure</span>
+                      </div>
+                    </div>
+                    <div className="flex mb-3">
+                      <span>SetSpeed</span>
+                      <img src="/images/attention_dark.svg" />
+                    </div>
+                    <div className="flex mb-3 space-x-2">
+                      <button className="w-1/2 justify-center py-2 text-left px-5 border-2 rounded-full border-[#36363F] flex items-center text-[#FFF]">Default</button>
+                      <button className="w-1/2 justify-center py-2 text-left px-5 border-2 rounded-full border-[#36363F] flex items-center text-[#FFF]">Auto</button>
+                    </div>
+                    <div className="flex mb-3">
+                      <span>Priority Fee</span>
+                    </div>
+                    <div className="flex mb-3 items-center">
+                    <input
+                        className="mr-3 w-4/5 px-4 py-2 bg-transparent placeholder-[#b5b7da] border border-[#36363F] rounded-full hover:border-white text-[#FFF] focus:border-white"
+                        placeholder="Input amount"
+                        value="0.008"
+                      />
+                      <span className="text-[15px]">SOL</span>
+                    </div>
+                    <div className="flex mb-3">
+                      <span>Bribery Amount </span>
+                      <img src="/images/attention_dark.svg" />
+                    </div>
+                    <div className="flex mb-3 items-center">
+                    <input
+                        className="mr-3 w-4/5 px-4 py-2 bg-transparent placeholder-[#b5b7da] border border-[#36363F] rounded-full hover:border-white text-[#FFF] focus:border-white"
+                        placeholder="Input amount"
+                        value="0.012"
+                      />
+                      <span className="text-[15px]">SOL</span>
+                    </div>
+                  </div>
+                ) : null}
               </div>
-              <button className="mb-4 w-full py-2 px-5 hover:bg-[#7970EA] bg-[#6a60e8] rounded-full items-center flex justify-center">
-                <AiFillThunderbolt /> &nbsp; Quick Buy &nbsp;
-                <SiSolana />
-                1.0
-              </button>
-              <span className="text-[#8d93b7] ">
-                Once you click on <b>Quick Buy</b>, your transaction is sent
-                immediately
-              </span>
+              {buySell === 1 ? (
+                <div>
+                  <button className="mb-4 w-full py-2 px-5 hover:bg-[#7970EA] bg-[#6a60e8] rounded-full items-center flex justify-center">
+                    <AiFillThunderbolt /> &nbsp; <b>Quick Buy</b> &nbsp;
+                  </button>
+                  <span className="text-[#8d93b7] ">
+                    Once you click on <b>Quick Buy</b>, your transaction is sent
+                    immediately
+                  </span>
+                </div>
+              ) : (
+                <div>
+                  <button className="mb-4 w-full py-2 px-5 hover:bg-[#7970EA] bg-[#6a60e8] rounded-full items-center flex justify-center">
+                    <AiFillThunderbolt /> &nbsp; <b>Quick Sell</b> &nbsp;
+                  </button>
+                  <span className="text-[#8d93b7] ">
+                    Estimation of expected payout incl. price impact and fees is
+                    only enabled for Raydium AMM. Once you click on{" "}
+                    <b>Quick Sell</b>, your transaction is sent immediately.
+                  </span>
+                </div>
+              )}
             </div>
           </div>
           <div className="p-4 border-[#36363F] border-2 bg-[#181921] text-white  rounded-lg mb-3">
@@ -522,7 +627,7 @@ export default function Home() {
               <div className="w-[10px] bg-[#898EFF] h-[10px] rounded-full"></div>
             </div>
           </div>
-          <div className=" border-[#36363F] border-2 bg-[#1D1E27] text-white  rounded-lg mb-3">
+          <div className="cursor-pointer border-[#36363F] border-2 bg-[#1D1E27] text-white  rounded-lg mb-3">
             <div className="flex items-center">
               <div
                 onClick={() => setShow(!show)}
@@ -541,80 +646,71 @@ export default function Home() {
                 {show == true ? <IoIosArrowUp /> : <IoIosArrowDown />}
               </button>
             </div>
-            {show == true ? (
-              <div className="border-t-2 border-[#36363F] py-3 flex">
-                <div className="w-1/4 border-r-2 border-[#36363F] px-4">
-                  <span className="text-[#8d93b7] text-[11px] font-medium">
-                    TXNS
-                  </span>
-                  <br />
-                  <span className="text-[15px] font-semibold">0</span>
-                  <br />
-                  <br />
-                  <span className="text-[#8d93b7] text-[11px] font-medium">
-                    VOLUME
-                  </span>
-                  <br />
-                  <span className="text-[15px] font-semibold">$0</span>
-                  <br />
-                  <br />
-                  <span className="text-[#8d93b7] text-[11px] font-medium">
-                    MAKERS
-                  </span>
-                  <br />
-                  <span className="text-[15px] font-semibold">0</span>
-                  <br />
+            {show === true ? (
+              <div className="border-t-2 border-[#36363F] px-3 ">
+                <div className="flex w-full justify-between border-b-2 border-[#36363F] py-3">
+                  <div className="flex items-center text-[#b5b7da]">
+                    <img className="mr-1" src="/images/attention_dark.svg" />
+                    Mint Authority
+                  </div>
+                  <div className="text-[#3ed6cc] font-semibold">Disabled</div>
                 </div>
-                <div className="p-3 w-3/4">
-                  <div className="flex justify-between">
-                    <span className="text-[#8d93b7] text-[11px] font-medium">
-                      BUYS
+                <div className="flex w-full justify-between border-b-2 border-[#36363F] py-3">
+                  <div className="flex items-center text-[#b5b7da]">
+                    <img className="mr-1" src="/images/attention_dark.svg" />
+                    Freeze Authority
+                  </div>
+                  <div className="text-[#3ed6cc] font-semibold">Disabled</div>
+                </div>
+                <div className="flex w-full justify-between border-b-2 border-[#36363F] py-3">
+                  <div className="flex items-center text-[#b5b7da]">
+                    <img className="mr-1" src="/images/attention_dark.svg" />
+                    LP Burned
+                  </div>
+                  <div className="text-[#3ed6cc] font-semibold">100%</div>
+                </div>
+                <div className="flex w-full justify-between border-b-2 border-[#36363F] py-3">
+                  <div className="flex items-center text-[#b5b7da]">
+                    <img className="mr-1" src="/images/attention_dark.svg" />
+                    Pooled LUCY
+                  </div>
+                  <div className=" font-semibold">1.05B $4.34K</div>
+                </div>
+                <div className="flex w-full justify-between border-b-2 border-[#36363F] py-3">
+                  <div className="flex items-center text-[#b5b7da]">
+                    <img className="mr-1" src="/images/attention_dark.svg" />
+                    Pooled SOL
+                  </div>
+                  <div className=" font-semibold">30.78 $4.3K</div>
+                </div>
+                <div className="flex w-full justify-between border-b-2 border-[#36363F] py-3">
+                  <div className="flex items-center text-[#b5b7da]">
+                    <img className="mr-1" src="/images/attention_dark.svg" />
+                    Top 10 Holders
+                  </div>
+                  <div className="text-[#3ed6cc] font-semibold">2.74%</div>
+                </div>
+                <div className="flex w-full justify-between border-b-2 border-[#36363F] py-3">
+                  <div className="flex items-center text-[#b5b7da]">
+                    <img className="mr-1" src="/images/attention_dark.svg" />
+                    Deployer
+                    <span className="ml-3 text-[#e7b587] bg-[#303038] px-2 py-1 rounded-full text-[10px]">
+                      Dev
                     </span>
-                    <span className="text-[#8d93b7] text-[11px] font-medium">
-                      SELLS
-                    </span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-[15px] font-semibold">0</span>
-                    <span className="text-[15px] font-semibold">0</span>
+                  <div className="text-[#8e9dff] font-semibold flex items-center">
+                    <img
+                      onClick={() => setWallet(val.makers)}
+                      className="w-[20px] mr-1 fixed-size"
+                      src={"/images/Filter.svg"}
+                    />
+                    CEg..7WT
                   </div>
-                  <div className="flex justify-between">
-                    <div className="bg-[#3ed6cc] w-1/2 h-1 rounded-lg mr-1"></div>
-                    <div className=" bg-[#ff4b92] w-1/2 h-1 rounded-lg"></div>
-                  </div>
-                  <br />
-                  <div className="flex justify-between">
-                    <span className="text-[#8d93b7] text-[11px] font-medium">
-                      BUYS VOL
-                    </span>
-                    <span className="text-[#8d93b7] text-[11px] font-medium">
-                      SELLS VOL
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-[15px] font-semibold">0</span>
-                    <span className="text-[15px] font-semibold">0</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <div className="bg-[#3ed6cc] w-1/2 h-1 rounded-lg mr-1"></div>
-                    <div className=" bg-[#ff4b92] w-1/2 h-1 rounded-lg"></div>
-                  </div>
-                  <br />
-                  <div className="flex justify-between">
-                    <span className="text-[#8d93b7] text-[11px] font-medium">
-                      BUYERS
-                    </span>
-                    <span className="text-[#8d93b7] text-[11px] font-medium">
-                      SELLERS
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-[15px] font-semibold">0</span>
-                    <span className="text-[15px] font-semibold">0</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <div className="bg-[#3ed6cc] w-1/2 h-1 rounded-lg mr-1"></div>
-                    <div className=" bg-[#ff4b92] w-1/2 h-1 rounded-lg"></div>
+                </div>
+                <div className="flex w-full justify-between border-b-2 border-[#36363F] py-3">
+                  <div className="flex items-center text-[#b5b7da]">
+                    <img className="mr-1" src="/images/attention_dark.svg" />
+                    Open Trading
                   </div>
                 </div>
               </div>

@@ -13,11 +13,26 @@ import TopTraders from "../components/TopTraders";
 import Holders from "./Holders";
 import Orders from "./Orders";
 const tabs = [
-  "Transactions",
-  "My Holdings",
-  "Top Traders",
-  "Holders(6)",
-  "Orders",
+  {
+    name:"Transactions",
+    img : '/images/transaction.svg'
+  },
+  {
+    name:"My Holdings",
+    img : '/images/Chart.svg'
+  },
+  {
+    name:"Top Traders",
+    img : '/images/Crown.svg'
+  },
+  {
+    name:"Holders(6)",
+    img : '/images/User.svg'
+  },
+  {
+    name:"Orders",
+    img : '/images/orders.svg'
+  },
 ];
 
 const TabsPanel = () => {
@@ -30,7 +45,8 @@ const TabsPanel = () => {
         {tabs.map((item, index) => (
           <TabNav
             key={`tab-nav-${index}`}
-            text={item}
+            text={item.name}
+            imgtab= {item.img}
             isActive={activeTabIndex === index}
             click={() => {
               setActiveTabIndex(index);

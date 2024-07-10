@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaFilter } from "react-icons/fa"; // Import a filter icon
 import { BiChevronDown } from "react-icons/bi"; // Import a down arrow icon
+import FilterButtonholding from './shared/FilterButtonholding'
 const Orders = () => {
   const [enabled, setEnabled] = useState(false);
 
@@ -8,11 +9,7 @@ const Orders = () => {
   return (
     <div>
       <div className="flex flex-row flex-wrap mt-5">
-        <button className="flex items-center border-[#36363F] border-2 px-3 py-2 mr-4 space-x-2 text-white bg-gray-800 rounded-full hover:bg-gray-700 focus:outline-none">
-          <FaFilter className="text-gray-400" />
-          <span className="text-[white] text-[13px]">Filter</span>
-          <BiChevronDown className="text-gray-50" />
-        </button>
+        <FilterButtonholding/>
 
         <div className="flex items-center ml-6">
           <button
