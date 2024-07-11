@@ -18,7 +18,7 @@ const Withdraw = () => {
         <div className="w-full py-4 text-[white]">
             <div className="flex flex-col mb-4">
                 <span className="text-[16px] text-[#b5b7da]">Withdraw from Photon trading wallet to your selected wallet.</span>
-                <div className="flex flex-col flex-wrap mt-4 lg:space-x-4 lg:flex-row mx-auto">
+                <div className="flex flex-col flex-wrap mt-4 lg:space-x-4 lg:flex-row ">
                     <div className="flex flex-col justify-between mb-2">
                         <div className="flex flex-col space-y-2">
                             <span className="text-[13px]">WITHDRAW FROM</span>
