@@ -9,31 +9,8 @@ import DexesButton from '../components/shared/DexesButton';
 
 const NewPairs = () => {
     
-    const [enabled, setEnabled] = useState(false);
+    const [enabled, setEnabled] = useState(true);
     const [searchsol, setSearchSol] = useState('0.0');
-    // const [isCoinMenuOpen, setIsCoinMenuOpen] = useState(false);
-    // const dropdownRef = useRef(null);
-
-    // const toggleCoinTypeDropdown = () => {
-    //     setIsCoinMenuOpen(!isCoinMenuOpen);
-    // };
-
-    // const closeCoinTypeDropdown = () => {
-    //     setIsOpen(false);
-    // };
-
-    // const handleCoinTypeClickOutside = (event) => {
-    //     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-    //         closeDropdown();
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     document.addEventListener('mousedown', handleClickOutside);
-    //     return () => {
-    //         document.removeEventListener('mousedown', handleClickOutside);
-    //     };
-    // }, []);
 
     const toggleSwitch = () => setEnabled(!enabled);
     
@@ -95,7 +72,7 @@ const NewPairs = () => {
                     </button>
                 </div>
             </div>
-            <Chart />
+            <Chart status= {enabled}/>
         </div>
     )
 }
