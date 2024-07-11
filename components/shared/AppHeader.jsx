@@ -11,6 +11,7 @@ import { TbCurrencySolana } from "react-icons/tb";
 import { TbDeviceMobileFilled } from "react-icons/tb";
 import { BiSolidUserCircle } from "react-icons/bi";
 import solanapng from "../../public/images/solana.png";
+import UserMenu from "./UserMenu";
 
 function AppHeader() {
   const [showMenu, setShowMenu] = useState(false);
@@ -131,7 +132,8 @@ function AppHeader() {
               <span>Mobile</span>
             </div>
             <div className="items-center my-auto">
-              <BiSolidUserCircle style={{ height: "35px", width: "auto" }} />
+              {/* <BiSolidUserCircle style={{ height: "35px", width: "auto" }} /> */}
+              <UserMenu />
             </div>
           </div>
         </div>
@@ -161,7 +163,7 @@ function AppHeader() {
         ].map((item, index) => (
           <div
             key={index}
-            className="font-Chillax-Variable flex items-center justify-between pt-3 mb-2 text-lg text-left justify-items-stretch text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light sm:mx-4 sm:py-2 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
+            className="flex items-center justify-between pt-3 mb-2 text-lg text-left font-Chillax-Variable justify-items-stretch text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light sm:mx-4 sm:py-2 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
             style={{
               fontWeight: 500,
               fontSize: "12px",

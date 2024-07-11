@@ -52,7 +52,7 @@ const DropdownMenu = () => {
                             <div
                                 key={index}
                                 onClick={closeDropdown}
-                                className="flex items-center px-4 py-3 rounded cursor-pointer hover:bg-gray-700"
+                                className="flex items-center px-4 py-3 rounded cursor-pointer hover:bg-[#23242a]"
                             >
                                 <img className="w-[15px] mr-2" src={item.src} alt={item.alt} />
                                 <span className="text-white">{item.label}</span>
