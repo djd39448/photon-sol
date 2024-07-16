@@ -5,7 +5,7 @@ const TransactionTable = () => {
   const [wallet, setWallet] = useState(null);
 
   const tableRef = useRef(null);
-  const [tableWidth, setTableWidth] = useState(tableRef.current.offsetWidth);
+  const [tableWidth, setTableWidth] = useState(null);
   useLayoutEffect(() => {
     if (tableRef.current) {
       setTableWidth(tableRef.current.offsetWidth);
