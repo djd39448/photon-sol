@@ -52,7 +52,7 @@ const Deposit = () => {
           <div className="flex flex-col mb-2">
             <button
               className="px-8 py-2 rounded-full mt-7"
-              style={{ backgroundColor: "rgb(108,98,235)" }}
+              style={{ backgroundColor: "rgb(107,98,231)" }}
             >
               DEPOSIT 
             </button>
