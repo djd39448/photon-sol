@@ -72,11 +72,6 @@ function AppHeader() {
         <div className="items-center justify-between hidden w-full ml-4 space-x-4 lg:flex">
           <div className="flex flex-row items-center">
             <LinkButton linkname={"/"} title={"NEW PAIRS"} />
-<<<<<<< HEAD
-            {/* <LinkButton linkname={"/"} title={"TRENDING"} />
-            <LinkButton linkname={"/"} title={"MEMESCOPE"} /> */}
-=======
->>>>>>> 07477f13b74befcf3d97606a8a36aeed73599329
             <LinkButton linkname={"/trending"} title={"TRENDING"} />
             <LinkButton linkname={"/memescope"} title={"MEMESCOPE"} />
             <LinkButton linkname={""} title={"HOLDINGS"} />
