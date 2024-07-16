@@ -52,14 +52,14 @@ const Deposit = () => {
           <div className="flex flex-col mb-2">
             <button
               className="px-8 py-2 rounded-full mt-7"
-              style={{ backgroundColor: "rgb(107,98,230)" }}
+              style={{ backgroundColor: "rgb(107,97,230)" }}
             >
               DEPOSIT 
             </button>
           </div>
           <div className="flex flex-col justify-between ">
             <div className="flex flex-col space-y-2">
-              <span className="text-[13px]">PRIORITY FEE</span>
+              <span className="text-[13px]">PRIORITY OF FEE</span>
               <input
                 className="flex lg:w-[100px] w-full flex-row px-4 py-2 bg-transparent placeholder-[#b5b7da] border border-[#36363F] rounded-full hover:border-white focus:border-white"
                 
