@@ -59,7 +59,7 @@ const Deposit = () => {
           </div>
           <div className="flex flex-col justify-between ">
             <div className="flex flex-col space-y-2">
-              <span className="text-[13px]">PRIORITY FEE</span>
+              <span className="text-[13px]">PRIORITY OF FEE</span>
               <input
                 className="flex lg:w-[100px] w-full flex-row px-4 py-2 bg-transparent placeholder-[#b5b7da] border border-[#36363F] rounded-full hover:border-white focus:border-white"
                 
