@@ -1,0 +1,24 @@
+Technologies and Tools for SunSpot Platform:
+
+1. Blockchain Technology:
+   - Tron Blockchain
+   - TRC20 Tokens
+   - Sunpump SDK
+
+2. Development Tools:
+   - TronBox for smart contract development
+   - TronWeb for blockchain interaction
+   - React or Angular for frontend development
+   - Node.js with Express.js for backend development
+   - MongoDB or PostgreSQL for database management
+
+3. Testing Tools:
+   - Mocha or Chai for unit testing
+   - Postman for API testing
+
+4. Project Management:
+   - Trello or Jira for task management
+
+5. Version Control:
+   - Git for source code management
+
