@@ -38,3 +38,7 @@ def deploy_trading_engine():
     tx_hash = trading_engine_contract.constructor().transact()
     tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
     print('TradingEngine contract deployed at:', tx_receipt.contractAddress)
+
+if __name__ == '__main__':
+    deploy_user_authentication()
+    deploy_trading_engine()
